@@ -1,14 +1,12 @@
-# call streamlit run .\Home.py 
 import streamlit as st
 from openai import OpenAI
-from OpenAI_api_key import openai_api_key
 
 
 st.title("Student Doubt Solver")
 
 client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
-    api_key= openai_api_key,
+    api_key= "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",
 )
 
 def doubt_solver(student_class,subject_name,student_doubt):
@@ -74,4 +72,3 @@ with st.form(key="user_info"):
                 response = doubt_solver(form_values["class"], form_values["subject"], form_values["doubt"])
                 st.subheader("Answer:")
                 st.write(response)
-
